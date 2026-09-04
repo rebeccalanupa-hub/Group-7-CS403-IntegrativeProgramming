@@ -15,6 +15,7 @@ module.exports = {
     return newStudent;
   },
 
+  
   findById: (id) => students.find((s) => s.id === id),
 
   findIndexById: (id) => students.findIndex((s) => s.id === id),

@@ -10,6 +10,7 @@ exports.createStudent = (req, res) => {
   res.status(201).json(newStudent);
 };
 
+
 exports.updateStudent = (req, res) => {
   const studentId = parseInt(req.params.id);
   const { name, course } = req.body;

@@ -8,5 +8,4 @@ router.put("/:id", studentController.updateStudent);
 router.patch("/:id", studentController.patchStudent);
 router.delete("/:id", studentController.deleteStudent);
 
-
 module.exports = router;

@@ -1,5 +1,6 @@
 const StudentModel = require("../models/student.model");
 
+
 exports.getAllStudents = (req, res) => {
   res.status(200).json(StudentModel.getAll());
 };
@@ -9,7 +10,6 @@ exports.createStudent = (req, res) => {
   const newStudent = StudentModel.create(name, course);
   res.status(201).json(newStudent);
 };
-
 
 exports.updateStudent = (req, res) => {
   const studentId = parseInt(req.params.id);

@@ -9,7 +9,6 @@ app.use(express.json());
 // Register API Routes
 app.use("/students", studentRoutes);
 
-
 app.listen(PORT, () => {
   console.log(`App is listening on port ${PORT}`);
 }); 

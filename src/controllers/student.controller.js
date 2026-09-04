@@ -11,6 +11,7 @@ exports.createStudent = (req, res) => {
   res.status(201).json(newStudent);
 };
 
+
 exports.updateStudent = (req, res) => {
   const studentId = parseInt(req.params.id);
   const { name, course } = req.body;
@@ -35,6 +36,7 @@ exports.patchStudent = (req, res) => {
     res.status(404).json({ message: "Student not found" });
   }
 };
+
 
 exports.deleteStudent = (req, res) => {
   const studentId = parseInt(req.params.id);

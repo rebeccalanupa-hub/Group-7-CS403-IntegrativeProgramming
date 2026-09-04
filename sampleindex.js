@@ -9,6 +9,8 @@ const students = [
 ];
 
 const app = express();
+
+
 app.use(express.json());
 
 app.post("/students", (req, res) => {
@@ -24,7 +26,7 @@ app.post("/students", (req, res) => {
 app.get("/students", (req, res) => {
   res.status(200).json(students);
 });
-
+  
 app.put("/students/:id", (req, res) => {
   const studentId = parseInt(req.params.id);
   const name = req.body.name;

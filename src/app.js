@@ -1,6 +1,7 @@
 const express = require("express");
 const studentRoutes = require("./routes/student.routes");
 const app = express();
+
 const PORT = 3000;
 
 app.use(express.json());

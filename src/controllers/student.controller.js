@@ -37,7 +37,6 @@ exports.patchStudent = (req, res) => {
   }
 };
 
-
 exports.deleteStudent = (req, res) => {
   const studentId = parseInt(req.params.id);
   const index = StudentModel.findIndexById(studentId);

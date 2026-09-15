@@ -1,4 +1,5 @@
 require('dotenv').config();
+const {Pool} = require('pg')
 
 module.exports = {
   host: process.env.DB_HOST,
@@ -6,4 +7,14 @@ module.exports = {
   database: process.env.DB_NAME,
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
-};
+}; 
+
+
+pool.query('SELECT NOW()', (err, res) => {
+  if (err) {
+    console.error(' Connection failed:', err.message);
+  } else {
+    console.log('Connected! Server time:', res.rows[0].now);
+  }
+  pool.end();
+});

@@ -1,12 +1,15 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const studentController = require("../controllers/student.controller");
+const studentController = require('../controllers/student.controller');
+const authMiddleware = require('../middleware/auth.middleware');
 
+// Public routes
+router.get('/', studentController.getAllStudents);
+router.get('/:id', studentController.getStudentById);
 
-router.get("/", studentController.getAllStudents);
-router.post("/", studentController.createStudent);
-router.put("/:id", studentController.updateStudent);
-router.patch("/:id", studentController.patchStudent);
-router.delete("/:id", studentController.deleteStudent);
+// Protected routes 
+router.post('/', authMiddleware, studentController.addStudent);
+router.patch('/:id', authMiddleware, studentController.updateStudent);
+router.delete('/:id', authMiddleware, studentController.deleteStudent);
 
 module.exports = router;

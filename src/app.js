@@ -1,22 +1,29 @@
-require("dotenv").config();
-const express = require("express");
-const cookieParser = require("cookie-parser");
+require('dotenv').config();
+const express = require('express');
+const cookieParser = require('cookie-parser');
 
 // Initialize Database Connection Pool
-require("./config/db");
+require('./config/db');
 
-const studentRoutes = require("./routes/student.routes");
-const authRoutes = require("./routes/auth.routes");
+// Import Swagger Setup
+const setupSwagger = require('./config/swagger');
+
+// Import Route Modules
+const studentRoutes = require('./routes/student.routes');
+const authRoutes = require('./routes/auth.routes');
 
 const app = express();
 
-// Middlewares
+// Global Middlewares
 app.use(express.json());
 app.use(cookieParser());
 
-// Register API Routes
-app.use("/students", studentRoutes);
-app.use("/auth", authRoutes);
+// Setup Swagger API Documentation UI at /api-docs
+setupSwagger(app);
 
-// Export Express app (server.js will handle app.listen)
+// Register API Routes
+app.use('/students', studentRoutes);
+app.use('/auth', authRoutes);
+
+// Export Express app module
 module.exports = app;
